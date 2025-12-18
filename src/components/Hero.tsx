@@ -1,7 +1,11 @@
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 
-const Hero = () => {
+interface HeroProps {
+  onStartFree: () => void;
+}
+
+const Hero = ({ onStartFree }: HeroProps) => {
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-background via-muted/30 to-background py-20 md:py-32">
       <div className="container mx-auto px-4">
@@ -22,7 +26,11 @@ const Hero = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-lg">
+              <Button 
+                size="lg" 
+                className="bg-primary hover:bg-primary/90 text-lg"
+                onClick={onStartFree}
+              >
                 <Icon name="Rocket" size={20} className="mr-2" />
                 Начать бесплатно
               </Button>

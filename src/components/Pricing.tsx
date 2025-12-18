@@ -2,6 +2,10 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
 import Icon from '@/components/ui/icon';
 
+interface PricingProps {
+  onBuyPlan: (planName: string) => void;
+}
+
 const plans = [
   {
     name: 'Старт',
@@ -56,7 +60,7 @@ const plans = [
   },
 ];
 
-const Pricing = () => {
+const Pricing = ({ onBuyPlan }: PricingProps) => {
   return (
     <section id="pricing" className="py-20 bg-background">
       <div className="container mx-auto px-4">
@@ -107,6 +111,7 @@ const Pricing = () => {
               
               <CardFooter>
                 <Button 
+                  onClick={() => onBuyPlan(plan.name)}
                   className={`w-full ${
                     plan.popular 
                       ? 'bg-primary hover:bg-primary/90' 
